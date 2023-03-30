@@ -7,6 +7,7 @@ import './App.css'
 import TestRequest from './components/TestRequest'
 // Views
 import Test from './views/Test'
+import TestOnload from './views/TestOnload'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,6 +16,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path = "/" element = { <Test/> } />
+        <Route path = "/TestOnload" element = { <TestOnload/> } />
         <Route exact path = "/test" >
           {/* <Navigate element = {"./static/test.html"} /> */}
         </Route>

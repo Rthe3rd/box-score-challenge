@@ -1,7 +1,7 @@
 const Test = () => {
     return (
-        <div>
             <body>
+        <div>
                 <div className="boxscore">
                     <div className="boxscore__team boxscore__team--header">
                         <label></label>
@@ -133,8 +133,8 @@ const Test = () => {
                         </div>
                     </div>
                 </div>
-            </body>
         </div>
+            </body>
     )
 }
 
