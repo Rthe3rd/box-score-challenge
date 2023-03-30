@@ -8,8 +8,9 @@ const TestOnload = () => {
     // useEffect to make API call to json
     useEffect(() => {
         // using axios.all requires that all calls are valid
-        axios.all(axios.get([ nbaURI, mlbURI ]))
-        .then((res) => {console.log(res)})
+        axios.all([ axios.get(nbaURI), axios.get(mlbURI) ])
+        // spread/desctruct response into different sub-responses
+        .then(axios.spread((nba, mlb) => { console.log(nba.data, mlb.data)}))
         .catch((err) => {console.log(err)})
     }, [])
 
