@@ -1,5 +1,5 @@
 // import individual player stats object
-import { individualStats, teamInfo, teamTotals, eventInfo, officialsInfo, batterTotals, batterInfo, pitchersInfo } from "./data.objects";
+import { individualStats, teamInfo, teamTotals, eventInfo, officialsInfo, batterTotals, batterInfo, fieldingInfo, pitchersInfo } from "./data.objects";
 
 // Model talks to mongoose which talks to mongo
 const mongoose = requires('mongoose');
@@ -68,12 +68,12 @@ const MlbSchema = new mongoose.Schema({
         type: [batterInfo],
         default: [{}]
     },
-    awayErros : {
+    awayErrors : {
         type: Number,
         default: 0
     },
     awayFielding : {
-        type: [batterInfo],
+        type: [fieldingInfo],
         default: [{}]
     },
     awayPeriodScores : {
@@ -85,12 +85,40 @@ const MlbSchema = new mongoose.Schema({
         default: [{}]
     },
     awayTeam: {
-        type: [teamInfo],
+        type: teamInfo,
         default: {}
     },
     event_information: {
         // need to reference eventInformation from data.objects.js
         type: eventInfo,
+        default: {}
+    },
+    homeBatterTotals : {
+        type: batterTotals,
+        default: {}
+    },
+    homeBatter : {
+        type: [batterInfo],
+        default: [{}]
+    },
+    homeErrors : {
+        type: Number,
+        default: 0
+    },
+    homeFielding : {
+        type: [fieldingInfo],
+        default: [{}]
+    },
+    homePeriodScores : {
+        type: Array,
+        default: []
+    },
+    homePitchers: {
+        type: [pitchersInfo],
+        default: [{}]
+    },
+    homeTeam: {
+        type: teamInfo,
         default: {}
     },
     league: {
