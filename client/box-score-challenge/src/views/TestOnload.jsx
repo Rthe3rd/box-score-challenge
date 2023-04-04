@@ -15,9 +15,9 @@ const TestOnload = () => {
         // spread/desctruct response into different sub-responses
         .then(axios.spread((nba, mlb) => { 
             console.log(nba.data, mlb.data)
-            setNBAData(nba.data)
-            setMLBData(mlb.data.away_batter_totals)
-            // console.log(Object.keys(mlb.data.away_batter_totals))
+            // setNBAData(nba.data)
+            // setMLBData(mlb.data.away_batter_totals)
+            // console.log(Object.keys(mlb.data))
             const objArray = []
             // for(const key in Object.keys(mlb.data.away_batter_totals)){
                 // let keyString = Object.keys(mlb.data.away_batter_totals)[key]
@@ -25,13 +25,15 @@ const TestOnload = () => {
                 // objArray.push(string)
             // }
             let string;
-            for(const x in mlb.data.away_batters){
-                for(const key in Object.keys(mlb.data.away_batters[x])){
-                    let keyString = Object.keys(mlb.data.away_batters[x])[key]
-                    // console.log(mlb.data.away_batters[x][keyString])
-                    // testing to see if the value is a string or number
+            const schemaField = "away_pitchers";
+            // loops through indices of array
+            for(const x in mlb.data[schemaField]){
+                // loops through the keys in each of the objects
+                for(const key in Object.keys(mlb.data[schemaField][x])){
+                    let keyString = Object.keys(mlb.data[schemaField][x])[key]
+                    // // testing to see if the value is a string or number
                     let dataType;
-                    if(( typeof mlb.data.away_batters[x][keyString] ) == "string"){
+                    if(( typeof mlb.data[schemaField][x][keyString] ) == "string"){
                         dataType = "String"
                     }
                     else{
@@ -42,17 +44,10 @@ const TestOnload = () => {
                 }
             }
             console.log(objArray)
-            // console.log(objArray)
             // attendance : {
             //     type: Number
             // },
-            // duration : {
-            //     type: String
-            // },
-            // seasonType : {
-            //     type: String
-            // }
-        
+
         }))
         .catch((err) => {console.log(err)})
     }, [])

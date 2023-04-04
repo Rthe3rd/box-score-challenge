@@ -1,5 +1,5 @@
 // import individual player stats object
-import { individualStats, teamInfo, teamTotals, eventInfo, officialsInfo } from "./data.objects";
+import { individualStats, teamInfo, teamTotals, eventInfo, officialsInfo, batterTotals, batterInfo, pitchersInfo } from "./data.objects";
 
 // Model talks to mongoose which talks to mongo
 const mongoose = requires('mongoose');
@@ -48,7 +48,10 @@ const NbaBSSchema = new mongoose.Schema( {
         type: teamTotals,
         default: {}
     },
-    league: {},
+    league: {
+        type: String,
+        deault: ''
+    },
     officials:{
         // need to reference officialsInfo from data.objects.js
         type: [officialsInfo],
@@ -56,6 +59,50 @@ const NbaBSSchema = new mongoose.Schema( {
     }
 }, {timestamps: true})
 
+const MlbSchema = new mongoose.Schema({
+    awayBatterTotals : {
+        type: batterTotals,
+        default: {}
+    },
+    awayBatter : {
+        type: [batterInfo],
+        default: [{}]
+    },
+    awayErros : {
+        type: Number,
+        default: 0
+    },
+    awayFielding : {
+        type: [batterInfo],
+        default: [{}]
+    },
+    awayPeriodScores : {
+        type: Array,
+        default: []
+    },
+    awayPitchers: {
+        type: [pitchersInfo],
+        default: [{}]
+    },
+    awayTeam: {
+        type: [teamInfo],
+        default: {}
+    },
+    event_information: {
+        // need to reference eventInformation from data.objects.js
+        type: eventInfo,
+        default: {}
+    },
+    league: {
+        type: String,
+        deault: ''
+    },
+    officials:{
+        // need to reference officialsInfo from data.objects.js
+        type: [officialsInfo],
+        default: [{}]
+    }
+})
 
 
 const NBABS = mongoose.model("NBABS", nbaBSSchema)
