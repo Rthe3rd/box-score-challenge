@@ -1,79 +1,8 @@
-export const individualStats = {
-    assists: {
-        type: Number
-    },
-    blocks: {
-        type: Number
-    },
-    defensive_rebounds: {
-        type: Number
-    },
-    displayName: {
-        type: String
-    },
-    fieldGoalPercentage: {
-        type: Number
-    },
-    fieldGoalAttempted: {
-        type: Number
-    },
-    fieldGoalMade: {
-        type: Number
-    },
-    firstName: {
-        type: String
-    },
-    freeThrowPercentage: {
-        type: Number
-    },
-    freeThrowAttempted: {
-        type: Number
-    },
-    freeThrowMade: {
-        type: Number
-    },
-    is_starter: {
-        type: Number
-    },
-    lastName: {
-        type: String
-    },
-    minutes: {
-        type: Number
-    },
-    offesniveRebounds: {
-        type: Number
-    },
-    personal_fouls: {
-        type: Number
-    },
-    points: {
-        type: Number,
-    },
-    position: {
-        type: String
-    },
-    steals: {
-        type: Number
-    },
-    team_abbreviation: {
-        type: String
-    },
-    threePointFieldGoalPercentage: {
-        type: Number
-    },
-    threePointFieldGoalAttempted: {
-        type: Number
-    },
-    threePointFieldGoalMade: {
-        type: Number
-    },
-    turnovers: {
-        type: Number
-    }
+const individualStats = {
+    last_name : { type: String}, first_name : { type: String}, display_name : { type: String}, position : { type: String}, minutes : { type: Number}, points : { type: Number}, assists : { type: Number}, turnovers : { type: Number}, steals : { type: Number}, blocks : { type: Number}, field_goals_attempted : { type: Number}, field_goals_made : { type: Number}, three_point_field_goals_attempted : { type: Number}, three_point_field_goals_made : { type: Number}, free_throws_attempted : { type: Number}, free_throws_made : { type: Number}, defensive_rebounds : { type: Number}, offensive_rebounds : { type: Number}, personal_fouls : { type: Number}, team_abbreviation : { type: String}, is_starter : { type: Boolean}, field_goal_percentage : { type: Number}, three_point_percentage : { type: Number}, free_throw_percentage : { type: Number}
 }
 
-export const teamInfo = {
+const teamInfo = {
     abreviation: {
         type: String,
     },
@@ -89,13 +18,13 @@ export const teamInfo = {
     division: {
         type: String,
     },
-    firstName: {
+    first_name: {
         type: String,
     },
-    fullName: {
+    full_name: {
         type: String,
     },
-    lastName: {
+    last_name: {
         type: String,
     },
     site_name: {
@@ -109,7 +38,7 @@ export const teamInfo = {
     }
 }
 
-export const teamTotals = {
+const teamTotals = {
     assits: {
         type: Number,
         default: 0
@@ -118,27 +47,27 @@ export const teamTotals = {
         type: Number,
         default: 0
     },
-    fieldGoalPercentage: {
+    field_goal_percentage: {
         type: Number,
         default: 0
     },
-    fieldGoalsAttempted: {
+    field_goals_attempted: {
         type: Number,
         default: 0
     },
-    fieldGoalsMade: {
+    field_goals_made: {
         type: Number,
         default: 0
     },
-    freeThrowPercentage: {
+    free_throw_percentage: {
         type: Number,
         default: 0
     },
-    freeThrowsAttempted: {
+    free_throws_attempted: {
         type: Number,
         default: 0
     },
-    freeThrowsMade: {
+    free_throws_made: {
         type: Number,
         default: 0
     },
@@ -146,10 +75,10 @@ export const teamTotals = {
         type: Number,
         default: 0
     },
-    offesniveRebounds: {
+    offesnive_rebounds: {
         type: Number
     },
-    personalFouls: {
+    personal_fouls: {
         type: Number
     },
     points: {
@@ -160,13 +89,13 @@ export const teamTotals = {
         type: Number,
         default: 0
     },
-    threePointFieldGoalAttempted: {
+    three_point_field_goal_attempted: {
         type: Number
     },
-    threePointFieldGoalMade: {
+    three_point_field_goal_made: {
         type: Number
     },
-    threePointPercentage: {
+    three_point_percentage: {
         type: Number
     },
     turnovers: {
@@ -174,14 +103,14 @@ export const teamTotals = {
     }
 }
 
-export const eventInfo = {
+const eventInfo = {
     attendance: {
         type: Number
     },
     duration: {
         type: String
     },
-    seasonType: {
+    season_type: {
         type: String
     },
     site: {
@@ -191,7 +120,7 @@ export const eventInfo = {
         state: String,
         surface: String
     },
-    startDateTime: {
+    start_date_time: {
         type: Date
     },
     status: {
@@ -202,18 +131,21 @@ export const eventInfo = {
     }
 }
 
-export const officialsInfo = {
-    firstName: {
+const officialsInfo = {
+    first_name: {
         type: String
     },
-    lastName: {
+    last_name: {
+        type: String
+    },
+    position: {
         type: String
     }
 }
 
 // camel case because data was taken from console.log
 // need to fix types
-export const batterTotals = {
+const batterTotals = {
     sacrifices: { type: Number },
     at_bats: { type: Number },
     plate_appearances: { type: Number },
@@ -237,13 +169,13 @@ export const batterTotals = {
     ops: { type: Number }, avg: { type: Number }, obp: { type: Number }, slg: { type: Number }, at_bats_per_home_run: { type: Number }, at_bats_per_rbi: { type: Number }, walk_rate: { type: Number }, plate_appearances_per_rbi: { type: Number }, plate_appearances_per_home_run: { type: Number }, extra_base_hits: { type: Number }, stolen_base_average: { type: Number }, strikeout_rate: { type: Number }, ops_string: { type: Number }, slg_string: { type: Number }, obp_string: { type: Number }, avg_string: { type: Number }, batting_highlights: { type: Number }
 }
 
-export const batterInfo = {
+const batterInfo = {
     last_name: { type: String }, first_name: { type: String }, display_name: { type: String }, position: { type: String }, bat_order: { type: Number }, sub_bat_order: { type: Number }, sacrifices: { type: Number }, at_bats: { type: Number }, plate_appearances: { type: Number }, singles: { type: Number }, doubles: { type: Number }, triples: { type: Number }, home_runs: { type: Number }, sac_flies: { type: Number }, sac_hits: { type: Number }, stolen_bases: { type: Number }, caught_stealing: { type: Number }, rbi_with_two_outs: { type: Number }, total_bases: { type: Number }, runs: { type: Number }, hits: { type: Number }, rbi: { type: Number }, walks: { type: Number }, strike_outs: { type: Number }, left_on_base: { type: Number }, hit_by_pitch: { type: Number }, team_abbreviation: { type: String }, ops: { type: Number }, avg: { type: Number }, obp: { type: Number }, slg: { type: Number }, at_bats_per_home_run: { type: Number }, at_bats_per_rbi: { type: Number }, walk_rate: { type: Number }, plate_appearances_per_rbi: { type: Number }, plate_appearances_per_home_run: { type: Number }, extra_base_hits: { type: Number }, stolen_base_average: { type: Number }, strikeout_rate: { type: Number }, ops_string: { type: String }, slg_string: { type: String }, obp_string: { type: String }, avg_string: { type: String }, batting_highlights: { type: String }
 }
 
-export const fieldingInfo = {
+const fieldingInfo = {
     last_name: { type: String }, first_name: { type: String }, display_name: { type: String }, errors: { type: Number }, team_abbreviation: { type: String }
 }
-export const pitchersInfo = {
+const pitchersInfo = {
     last_name: { type: String }, first_name: { type: String }, display_name: { type: String }, pitch_order: { type: Number }, win: { type: Number }, loss: { type: Number }, save: { type: Number }, hold: { type: Number }, era: { type: Number }, whip: { type: Number }, innings_pitched: { type: Number }, hits_allowed: { type: Number }, runs_allowed: { type: Number }, earned_runs: { type: Number }, walks: { type: Number }, intentional_walks: { type: Number }, strike_outs: { type: Number }, home_runs_allowed: { type: Number }, pitch_count: { type: Number }, pitches_strikes: { type: Number }, wild_pitches: { type: Number }, hit_by_pitch: { type: Number }, errors: { type: Number }, team_abbreviation: { type: String }
 }

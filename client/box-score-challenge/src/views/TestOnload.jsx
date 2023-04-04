@@ -16,32 +16,32 @@ const TestOnload = () => {
         .then(axios.spread((nba, mlb) => { 
             console.log(nba.data, mlb.data)
 // ************************ HELPER CODE TO GET ALL FIELDS ************************** \\
-            // // const objArray = []
-            // // for(const key in Object.keys(mlb.data.away_batter_totals)){
-            //     // let keyString = Object.keys(mlb.data.away_batter_totals)[key]
-            //     // let string = `${keyString} : { type: Number}`
-            //     // objArray.push(string)
-            // // }
-            // let string;
-            // const schemaField = "away_pitchers";
-            // // loops through indices of array
-            // for(const x in mlb.data[schemaField]){
-            //     // loops through the keys in each of the objects
-            //     for(const key in Object.keys(mlb.data[schemaField][x])){
-            //         let keyString = Object.keys(mlb.data[schemaField][x])[key]
-            //         // testing to see if the value is a string or number
-            //         let dataType;
-            //         if(( typeof mlb.data[schemaField][x][keyString] ) == "string"){
-            //             dataType = "String"
-            //         }
-            //         else{
-            //             dataType = "Number"
-            //         }
-            //         string = `${keyString} : { type: ${dataType}}`
-            //         objArray.push(string)
-            //     }
+            const objArray = []
+            // for(const key in Object.keys(mlb.data.away_batter_totals)){
+                // let keyString = Object.keys(mlb.data.away_batter_totals)[key]
+                // let string = `${keyString} : { type: Number}`
+                // objArray.push(string)
             // }
-            // console.log(objArray)
+            let string;
+            const schemaField = "away_stats";
+            // loops through indices of array
+            for(const x in nba.data[schemaField]){
+                // loops through the keys in each of the objects
+                for(const key in Object.keys(nba.data[schemaField][x])){
+                    let keyString = Object.keys(nba.data[schemaField][x])[key]
+                    // testing to see if the value is a string or number
+                    let dataType;
+                    if(( typeof nba.data[schemaField][x][keyString] ) == "string"){
+                        dataType = "String"
+                    }
+                    else{
+                        dataType = "Number"
+                    }
+                    string = `${keyString} : { type: ${dataType}}`
+                    objArray.push(string)
+                }
+            }
+            console.log(objArray)
 // ************************ HELPER CODE TO GET ALL FIELDS ************************** \\
         }))
         .catch((err) => {console.log(err)})
