@@ -5,48 +5,55 @@ const dataObjects = require( "./data.objects");
 // Model talks to mongoose which talks to mongo
 const mongoose = require('mongoose');
 
-const NbaSchema = new mongoose.Schema( {
+const NBASchema = new mongoose.Schema( {
     away_period_scores : {
         type: Array,
         default: []
     },
     away_stats: {
         // need to reference playerStats from data.objects.js
-        type: [dataObjects.individualStats],
+        // type: [dataObjects.individualStats],
+        type: [Object],
         default: [{}]
     },
     away_team: {
         // need to reference teamInfo from data.objects.js
-        type: [dataObjects.teamInfo],
+        // type: [dataObjects.teamInfo],
+        type: Object,
         default: {}
     }, 
     away_totals: {
         // need to reference teamTotals from data.objects.js
-        type: [dataObjects.teamTotals],
+        // type: [dataObjects.teamTotals],
+        type: Object,
         default: {}
     },
     event_information: {
         // need to reference eventInformation from data.objects.js
-        type: [dataObjects.eventInfo],
+        // type: [dataObjects.eventInfo],
+        type: Object,
         default: {}
     },
-    home_peroidScores : {
+    home_period_scores : {
         type: Array,
         default: []
     },
     home_stats: {
         // need to reference playerStats from data.objects.js
-        type: [dataObjects.individualStats],
+        // type: [dataObjects.individualStats],
+        type: [Object],
         default: [{}]
     },
     home_team: {
         // need to reference teamInfo from data.objects.js
-        type: [dataObjects.teamInfo],
+        // type: [dataObjects.teamInfo],
+        type: Object,
         default: {}
     }, 
     home_totals: {
         // need to reference teamTotals from data.objects.js
-        type: [dataObjects.teamTotals],
+        // type: [dataObjects.teamTotals],
+        type: Object,
         default: {}
     },
     league: {
@@ -55,26 +62,27 @@ const NbaSchema = new mongoose.Schema( {
     },
     officials:{
         // need to reference officialsInfo from data.objects.js
-        type: [dataObjects.officialsInfo],
+        // type: [dataObjects.officialsInfo],
+        type: [Object],
         default: [{}]
     }
 }, {timestamps: true})
 
-const MlbSchema = new mongoose.Schema({
+const MLBSchema = new mongoose.Schema({
     away_batter_totals : {
-        type: [dataObjects.batterTotals],
+        type: Object,
         default: {}
     },
-    away_batter : {
-        type: [dataObjects.batterInfo],
+    away_batters : {
+        type: [Object],
         default: [{}]
     },
     away_errors : {
         type: Number,
         default: 0
     },
-    away_Fielding : {
-        type: [dataObjects.fieldingInfo],
+    away_fielding : {
+        type: [Object],
         default: [{}]
     },
     away_period_scores : {
@@ -82,24 +90,24 @@ const MlbSchema = new mongoose.Schema({
         default: []
     },
     away_pitchers: {
-        type: [dataObjects.pitchersInfo],
+        type: [Object],
         default: [{}]
     },
     away_team: {
-        type: [dataObjects.teamInfo],
+        type: Object,
         default: {}
     },
     event_information: {
         // need to reference eventInformation from data.objects.js
-        type: [dataObjects.eventInfo],
+        type: Object,
         default: {}
     },
     home_batter_totals : {
-        type: [dataObjects.batterTotals],
+        type: Object,
         default: {}
     },
-    home_batter : {
-        type: [dataObjects.batterInfo],
+    home_batters : {
+        type: [Object],
         default: [{}]
     },
     home_errors : {
@@ -107,7 +115,7 @@ const MlbSchema = new mongoose.Schema({
         default: 0
     },
     home_fielding : {
-        type: [dataObjects.fieldingInfo],
+        type: [Object],
         default: [{}]
     },
     home_periodScores : {
@@ -115,11 +123,11 @@ const MlbSchema = new mongoose.Schema({
         default: []
     },
     home_pitchers: {
-        type: [dataObjects.pitchersInfo],
+        type: [Object],
         default: [{}]
     },
     home_team: {
-        type: [dataObjects.teamInfo],
+        type: Object,
         default: {}
     },
     league: {
@@ -128,11 +136,13 @@ const MlbSchema = new mongoose.Schema({
     },
     officials:{
         // need to reference officialsInfo from data.objects.js
-        type: [dataObjects.officialsInfo],
+        type: [Object],
         default: [{}]
     }
 })
 
 
-const NBABS = mongoose.model("NBABS", NbaSchema)
-module.exports = NBABS;
+const NBABoxScore = mongoose.model("NBABoxScore", NBASchema)
+const MLBBoxScore = mongoose.model("MLBBoxScore", MLBSchema)
+module.exports = NBABoxScore;
+module.exports = MLBBoxScore;

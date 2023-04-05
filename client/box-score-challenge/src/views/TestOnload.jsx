@@ -14,7 +14,6 @@ const TestOnload = () => {
         axios.all([ axios.get(nbaURI), axios.get(mlbURI) ])
         // spread/desctruct response into different sub-responses
         .then(axios.spread((nba, mlb) => { 
-            console.log(nba.data, mlb.data)
 // ************************ HELPER CODE TO GET ALL FIELDS ************************** \\
             const objArray = []
             // for(const key in Object.keys(mlb.data.away_batter_totals)){
@@ -31,8 +30,11 @@ const TestOnload = () => {
                     let keyString = Object.keys(nba.data[schemaField][x])[key]
                     // testing to see if the value is a string or number
                     let dataType;
-                    if(( typeof nba.data[schemaField][x][keyString] ) == "string"){
+                    if(( typeof mlb.data[schemaField][x][keyString] ) == "string"){
                         dataType = "String"
+                    }
+                    if(( typeof mlb.data[schemaField][x][keyString] ) == "boolean"){
+                        dataType = "Boolean"
                     }
                     else{
                         dataType = "Number"

@@ -1,20 +1,44 @@
 // Controller requires with the model to perform "business" logic
-const BoxScore = require("../models/bsc.model")
+const NBABoxScore = require("../models/bsc.model")
+const MLBBoxScore = require("../models/bsc.model")
 
 // ========================= CREATE ========================= //
 // Create/write box score to DB
-module.exports = {
-    create: (req, res) => {
-        BoxScore.create(req.body)
-        .then(boxScore => res.json(boxScore))
-        .catch(err => res.status(400).json(err))
-    }
+module.exports.createNBABS = (req, res) => {
+    NBABoxScore.create(req.body)
+    .then(console.log(req.body))
+    .then(newNBABoxScore => {res.json(newNBABoxScore)})
+    .catch((err) => {
+        res.json({ message: 'Something went wrong create NBA document', error: err })
+    })
 } 
+
+module.exports.createMLBBS = (req, res) => {
+    MLBBoxScore.create(req.body)
+    .then(console.log(req.body))
+    .then(newMLBBoxScore => res.json(newMLBBoxScore))
+    .catch((err) => {
+        res.json({message: "Something went wrong creating MLB document", error: err})
+    })
+}
 
 // ========================= GET ALL ========================= //
 // Get/check box scores
-module.exports.getAll = (req, res) => {
-    
+module.exports.getNBABS = (req, res) => {
+    NBABoxScore.find()
+    .then((NBABS) => {
+        res.json({NBABS})
+    })
+    .catch((err) => res.json({ message: "Something went wrong getting NBA BS", error: err }))
+}
+
+module.exports.getMLBBS = (req, res) => {
+    MLBBoxScore.find()
+    .then((MLBBS) =>{
+        res.json({MLBBS})
+    })
+    .catch((err) => res.json({ message: "something went wrong getting MLB BS", error: err}))
+
 }
 
 
