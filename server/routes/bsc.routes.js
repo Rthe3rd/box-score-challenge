@@ -7,5 +7,6 @@ module.exports = app => {
     app.post("/api/createNBABS", BSCController.createNBABS)
     app.post("/api/createMLBBS/", BSCController.createMLBBS)
     app.get("/api/getNBABS", BSCController.getNBABS)
+    app.get("/api/getMLBBS", BSCController.getMLBBS)
     // app.put() put request -> update data in db
 }

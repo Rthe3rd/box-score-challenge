@@ -139,7 +139,7 @@ const MLBSchema = new mongoose.Schema({
         type: [Object],
         default: [{}]
     }
-})
+}, {timestamps: true})
 
 
 const NBABoxScore = mongoose.model("NBABoxScore", NBASchema)

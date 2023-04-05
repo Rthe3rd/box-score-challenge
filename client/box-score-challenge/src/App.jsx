@@ -17,9 +17,6 @@ function App() {
       <Routes>
         <Route path = "/" element = { <Test/> } />
         <Route path = "/TestOnload" element = { <TestOnload/> } />
-        <Route exact path = "/test" >
-          {/* <Navigate element = {"./static/test.html"} /> */}
-        </Route>
       </Routes>
     </div>
   )
