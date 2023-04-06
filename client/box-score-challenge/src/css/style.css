@@ -1,5 +1,98 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
 html {
   font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
-body {
-  font-size: 62.5%; }
+.u-center-text {
+  text-align: center !important; }
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem !important; }
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem !important; }
+  @media only screen and (max-width: 56.25em) {
+    .u-margin-bottom-medium {
+      margin-bottom: 3rem !important; } }
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem !important; }
+  @media only screen and (max-width: 56.25em) {
+    .u-margin-bottom-big {
+      margin-bottom: 5rem !important; } }
+
+.u-margin-bottom-huge {
+  margin-top: 10rem !important; }
+
+.u-margin-bottom-top {
+  margin-top: 8rem !important; }
+
+.u-margin-top-small {
+  margin-top: 1.5rem !important; }
+
+.u-margin-top-medium {
+  margin-top: 4rem !important; }
+
+.u-margin-top-big {
+  margin-top: 8rem !important; }
+
+.grid__container {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 2rem; }
+
+.container {
+  display: grid;
+  grid-template-columns: 20rem repeat(12, 10rem);
+  grid-template-rows: repeat(3, 5rem) 10rem;
+  height: 100vh;
+  padding: 2rem;
+  background-color: brown; }
+  .container--pitcher {
+    grid-column: span 13;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; }
+    .container--pitcher > * {
+      border: 2px solid black;
+      color: black;
+      background-color: green;
+      display: grid;
+      place-items: center;
+      place-self: stretch; }
+  .container > * {
+    border: 2px solid black;
+    color: black;
+    background-color: skyblue;
+    display: grid;
+    place-items: center; }
+
+.boxscore__team--header, .boxscore__team--away {
+  display: grid;
+  grid-template-columns: 10rem 20rem 10rem; }
+
+.boxscore__team__units {
+  display: grid;
+  grid-template-columns: repeat(9, 2rem); }
+
+.boxscore__team__results {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; }
+
+.boxscore__team__results > span {
+  border: 1px solid red; }

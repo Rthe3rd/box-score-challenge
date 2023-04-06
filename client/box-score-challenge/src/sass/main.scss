@@ -1,9 +1,14 @@
 // test
+@import "abstracts/mixins";
+@import "abstracts/variables";
 
-html {
-    font-size: 62.5%;
-}
+@import "base/base";
+@import "base/utilities";
+@import "base/typography";
 
-body {
-    font-size: 62.5%;
-}
+@import "components/box-score";
+@import "components/grid";
+
+@import "layouts/grid";
+
+@import "pages/home";

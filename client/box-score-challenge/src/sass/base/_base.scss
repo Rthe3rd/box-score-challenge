@@ -1,0 +1,25 @@
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing: inherit;
+}
+
+html{
+    // This defines what 1 rem is! More so a base unit of measure than typography!!
+    // all rem measurements (paddings, margins) will be scaled accordingly
+    font-size: 62.5%; // 1 rem = 10px ; 10px/16px = 62.5% 
+
+    @include respond(tab-land){
+        font-size: 56.25%; // if, in tab-port, we want 1 rem to be 9px => 9/16 = 56.25% => font size should be 56.25%
+    }
+
+    @include respond(tab-port){
+        font-size: 50%; // if, in tab-port, we want 1 rem to be 8px => 8/16 = 50% => font size should be 50% 
+        }
+
+    @include respond(big-desktop){
+        font-size: 75%;  // if, in tab-port, we want 1 rem to be 12px => 12/16 = 75% => font size should be 75%
+    }
+}
