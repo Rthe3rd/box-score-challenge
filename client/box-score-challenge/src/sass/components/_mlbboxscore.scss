@@ -1,0 +1,25 @@
+.mlbboxscore{
+    border-collapse: collapse;
+
+    &__tablebody, &__tablehead{
+
+        td {
+            border: 1px solid gray;
+            padding: .5rem;
+            text-align: center;
+        }
+
+        &__pitchers{
+            &__table{
+                color: red;
+                // border: 1pt solid white;
+                // table-layout: fixed;
+                width: 100%;
+                &--win, &--lose, &--save {
+                    color:green;
+                    width: 33.33333%;
+                }
+            }
+        }
+    }
+}

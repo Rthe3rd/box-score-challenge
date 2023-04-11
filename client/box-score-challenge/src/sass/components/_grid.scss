@@ -7,9 +7,11 @@
 }
 
 .container{
+    --numberOfInnings: 9;
     display: grid;
     // number in reapeat needs to be dynamic
-    grid-template-columns: 20rem repeat(12, 10rem);
+    // grid-template-columns: 20rem repeat(var(--numberOfInnings), 10rem) repeat(3, 10rem);
+    grid-template-columns: 20rem repeat(13, 10rem);
     grid-template-rows: repeat(3,5rem) 10rem;
     height: 100vh;
     padding: 2rem;
@@ -60,7 +62,7 @@
     &--pitcher{
         // span variable should be depenent on amount of divs
         // i.e. more innings
-        grid-column: span 13;
+        grid-column: span 14;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
 

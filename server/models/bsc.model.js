@@ -118,7 +118,7 @@ const MLBSchema = new mongoose.Schema({
         type: [Object],
         default: [{}]
     },
-    home_periodScores : {
+    home_period_scores : {
         type: Array,
         default: []
     },

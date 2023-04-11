@@ -41,5 +41,9 @@ module.exports.getMLBBS = (req, res) => {
 
 }
 
+// ========================= UPDATE ALL ========================= //
+module.exports.updateMLBBS = (req, res) => {
+    // use id from first get request to find in db for update? 
+}
 
 // Update box scores

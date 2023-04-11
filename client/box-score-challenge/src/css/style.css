@@ -5,16 +5,16 @@
   padding: 0;
   box-sizing: inherit; }
 
-html {
+.root {
   font-size: 62.5%; }
   @media only screen and (max-width: 75em) {
-    html {
+    .root {
       font-size: 56.25%; } }
   @media only screen and (max-width: 56.25em) {
-    html {
+    .root {
       font-size: 50%; } }
   @media only screen and (min-width: 112.5em) {
-    html {
+    .root {
       font-size: 75%; } }
 
 .u-center-text {
@@ -58,14 +58,15 @@ html {
   font-size: 2rem; }
 
 .container {
+  --numberOfInnings: 9;
   display: grid;
-  grid-template-columns: 20rem repeat(12, 10rem);
+  grid-template-columns: 20rem repeat(13, 10rem);
   grid-template-rows: repeat(3, 5rem) 10rem;
   height: 100vh;
   padding: 2rem;
   background-color: brown; }
   .container--pitcher {
-    grid-column: span 13;
+    grid-column: span 14;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; }
     .container--pitcher > * {
@@ -81,6 +82,19 @@ html {
     background-color: skyblue;
     display: grid;
     place-items: center; }
+
+.mlbboxscore {
+  border-collapse: collapse; }
+  .mlbboxscore__tablebody td, .mlbboxscore__tablehead td {
+    border: 1px solid gray;
+    padding: .5rem;
+    text-align: center; }
+  .mlbboxscore__tablebody__pitchers__table, .mlbboxscore__tablehead__pitchers__table {
+    color: red;
+    width: 100%; }
+    .mlbboxscore__tablebody__pitchers__table--win, .mlbboxscore__tablebody__pitchers__table--lose, .mlbboxscore__tablebody__pitchers__table--save, .mlbboxscore__tablehead__pitchers__table--win, .mlbboxscore__tablehead__pitchers__table--lose, .mlbboxscore__tablehead__pitchers__table--save {
+      color: green;
+      width: 33.33333%; }
 
 .boxscore__team--header, .boxscore__team--away {
   display: grid;

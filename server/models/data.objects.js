@@ -3,7 +3,7 @@ const individualStats = {
 }
 
 const teamInfo = {
-    abreviation: {
+    abbreviation: {
         type: String,
     },
     active: {

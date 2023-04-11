@@ -73,7 +73,6 @@ const TestOnload = () => {
                         </div>
                     </div>
                     {/* row-2 */}
-                    
                     <div className="boxscore__team boxscore__team--away">
                         <label>CHC</label>
                         <div className="boxscore__team__units">

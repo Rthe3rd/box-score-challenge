@@ -10,18 +10,20 @@ import Grid from './components/Grid'
 // Views
 import Test from './views/Test'
 import TestOnload from './views/TestOnload'
+import Boxscore from './views/Boxscore'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <body className="App">
+    <div className="App">
       <Routes>
         <Route path = "/" element = { <Test/> } />
         <Route path = "/TestOnload" element = { <TestOnload/> } />
         <Route path = "/Grid" element = { <Grid/> } />
+        <Route path = "/Boxscore" element = { <Boxscore/> } />
       </Routes>
-    </body>
+    </div>
   )
 }
 
