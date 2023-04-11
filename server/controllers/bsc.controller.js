@@ -41,6 +41,16 @@ module.exports.getMLBBS = (req, res) => {
 
 }
 
+// ========================= GET MOST UP TO DATE DATA ========================= //
+module.exports.getNewestMLBBS = (req, res) => {
+    MLBBoxScore.findOne().sort({updatedAt:-1})
+    .then((newestMLBBS) => { 
+        res.json({newestMLBBS})
+    })
+    .catch((err) => res.json({ message: "something went wrong getting the newest MLB BS", error: err}))
+}
+
+
 // ========================= UPDATE ALL ========================= //
 module.exports.updateMLBBS = (req, res) => {
     // use id from first get request to find in db for update? 
