@@ -90,11 +90,17 @@
     padding: .5rem;
     text-align: center; }
   .mlbboxscore__tablebody__pitchers__table, .mlbboxscore__tablehead__pitchers__table {
-    color: red;
     width: 100%; }
     .mlbboxscore__tablebody__pitchers__table--win, .mlbboxscore__tablebody__pitchers__table--lose, .mlbboxscore__tablebody__pitchers__table--save, .mlbboxscore__tablehead__pitchers__table--win, .mlbboxscore__tablehead__pitchers__table--lose, .mlbboxscore__tablehead__pitchers__table--save {
       color: green;
       width: 33.33333%; }
+  .mlbboxscore__tablebody__teams__table, .mlbboxscore__tablehead__teams__table {
+    width: 100%; }
+    .mlbboxscore__tablebody__teams__table--away, .mlbboxscore__tablebody__teams__table--home, .mlbboxscore__tablehead__teams__table--away, .mlbboxscore__tablehead__teams__table--home {
+      background-color: #5081b8;
+      width: 40%;
+      font-size: 1.5rem;
+      font-weight: 600; }
 
 .boxscore__team--header, .boxscore__team--away {
   display: grid;

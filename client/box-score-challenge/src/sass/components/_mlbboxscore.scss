@@ -11,13 +11,24 @@
 
         &__pitchers{
             &__table{
-                color: red;
                 // border: 1pt solid white;
                 // table-layout: fixed;
                 width: 100%;
                 &--win, &--lose, &--save {
                     color:green;
                     width: 33.33333%;
+                }
+            }
+        }
+
+        &__teams{
+            &__table{
+                width:100%;
+                &--away, &--home{
+                    background-color: #5081b8;
+                    width: 40%;
+                    font-size: 1.5rem;  
+                    font-weight: 600;
                 }
             }
         }

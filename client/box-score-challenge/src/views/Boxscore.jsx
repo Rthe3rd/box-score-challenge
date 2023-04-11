@@ -65,11 +65,11 @@ const Boxscore = () => {
                     console.log(currentTime - dbDataAge)
                     // converting db data age to standard unix timestamp in order to perform comparision
                     // data is in db -> current date - updatedAt > 15k ms ? axios.get(bs) : axios.get(localhose) 
-                    if (currentTime - dbDataAge >= 15000) {
+                    if (currentTime - dbDataAge >= 15) {
                         console.log("need to refresh data")
                         axios.get(mlbURI)
                             .then((res) => {
-                                axios.put("http://localhost:8000/api/createMLBBS/", res.data)
+                                axios.post("http://localhost:8000/api/createMLBBS/", res.data)
                                     .then((res) => { console.log("success loading", res) })
                                     .catch((err) => { "Error saving fresh data", console.log(err) })
                             })
@@ -139,13 +139,19 @@ const Boxscore = () => {
                         <td className="mlbboxscore__tablebody__totals--home">{mlbData.home_errors}</td>
                     </tr>
                     <tr>
-                        <td className="mlbboxscore__tablebody__pitchers" colSpan={lengthOfTable}>
-                            <table className="mlbboxscore__tablebody__pitchers__table" >
+                        <td className="mlbboxscore__tablebody__teams" colSpan={lengthOfTable}>
+                            <table className="mlbboxscore__tablebody__teams__table" >
                                 <thead>
-                                    <tr >
-                                        <th className="mlbboxscore__tablebody__pitchers__table--win">Pitcher 1</th>
-                                        <th className="mlbboxscore__tablebody__pitchers__table--lose">Pitcher 2</th>
-                                        <th className="mlbboxscore__tablebody__pitchers__table--save">Pitcher 3</th>
+                                    <tr>
+                                        <th className="mlbboxscore__tablebody__teams__table--away">
+                                            <h3>{mlbData.away_team.last_name}</h3>
+                                        </th>
+                                        <th className="mlbboxscore__tablebody__teams__table--gstatus">
+                                            {mlbData.event_information.status == "completed" ? "Final" : mlbData.event_information.status}
+                                        </th>
+                                        <th className="mlbboxscore__tablebody__teams__table--home">
+                                            <h3>{mlbData.home_team.last_name}</h3>
+                                        </th>
                                     </tr>
                                 </thead>
                             </table>
