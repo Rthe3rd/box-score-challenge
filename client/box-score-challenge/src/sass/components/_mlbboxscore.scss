@@ -1,36 +1,53 @@
 .mlbboxscore{
+
+    @include centerElement;
+
     border-collapse: collapse;
 
     &__tablebody, &__tablehead{
+        
 
-        td {
-            border: 1px solid gray;
+        td:not(.mlbboxscore__tablebody__teams) {
             padding: .5rem;
+            background-color: $color-gray-light;
+            color: $color-gray-dark;
+            font-weight: 500;
+        }
+
+        td{
+            border: .1rem solid $color-gray-dark;
             text-align: center;
         }
 
-        &__pitchers{
-            &__table{
-                // border: 1pt solid white;
-                // table-layout: fixed;
-                width: 100%;
-                &--win, &--lose, &--save {
-                    color:green;
-                    width: 33.33333%;
-                }
-            }
+        &__totals{
+            background-color: #ededed;
         }
 
         &__teams{
+            padding:0;
+
             &__table{
+                border-collapse: collapse;
                 width:100%;
                 &--away, &--home{
-                    background-color: #5081b8;
                     width: 40%;
                     font-size: 1.5rem;  
                     font-weight: 600;
+                }
+                &--gstatus{
+                    background-color: $color-gray-medium;
+                    color: $color-gray-darker;
+                }
+                &--away{
+                    color: $color-white-light;
+                    background-color: #023163;
+                }
+                &--home{
+                    color: $color-white-light;
+                    background-color: #cd1241;
                 }
             }
         }
     }
 }
+

@@ -97,68 +97,71 @@ const Boxscore = () => {
 
     return (
         <div className="root">
-            <table className="mlbboxscore">
-                <thead className="mlbboxscore__tablehead">
-                    <tr className="mlbboxscore__tablehead_columnheaders">
-                        <td className="mlbboxscore__tablehead--teamabrv">Team</td>
-                        {/* Inning number mapping */}
-                        {awayPeriodScores.map((inning, i) => {
-                            return (
-                                <td className="mlbboxscore__tablehead--inning" key={i}>
-                                    {i + 1}
-                                </td>
-                            )
-                        })
-                        }
-                        <td className="mlbboxscore__tablehead--totals">Runs</td>
-                        <td className="mlbboxscore__tablehead--totals">Hits</td>
-                        <td className="mlbboxscore__tablehead--totals">Errors</td>
-                    </tr>
-                </thead>
-                <tbody className="mlbboxscore__tablebody">
-                    <tr>
-                        <td className="mlbboxscore__tablebody__teamabrv--away">{awayAbbreviation}</td>
-                        {awayPeriodScores.map((away_score, inning) => {
-                            return (
-                                <td className="mlbboxscore__tablebody__inningscore--away" key={inning + 1}>{away_score}</td>
-                            )
-                        })}
-                        <td className="mlbboxscore__tablebody__totals--away">{awayBatterTotals.hits}</td>
-                        <td className="mlbboxscore__tablebody__totals--away">{awayBatterTotals.runs}</td>
-                        <td className="mlbboxscore__tablebody__totals--away">{mlbData.away_errors}</td>
-                    </tr>
-                    <tr>
-                        <td className="mlbboxscore__tablebody__teamabrv--home">{homeAbbreviation}</td>
-                        {homePeriodScores.map((away_score, inning) => {
-                            return (
-                                <td className="mlbboxscore__tablebody__inningscore--home" key={inning + 1}>{away_score}</td>
-                            )
-                        })}
-                        <td className="mlbboxscore__tablebody__totals--home">{homeBatterTotals.hits}</td>
-                        <td className="mlbboxscore__tablebody__totals--home">{homeBatterTotals.runs}</td>
-                        <td className="mlbboxscore__tablebody__totals--home">{mlbData.home_errors}</td>
-                    </tr>
-                    <tr>
-                        <td className="mlbboxscore__tablebody__teams" colSpan={lengthOfTable}>
-                            <table className="mlbboxscore__tablebody__teams__table" >
-                                <thead>
-                                    <tr>
-                                        <th className="mlbboxscore__tablebody__teams__table--away">
-                                            <h3>{mlbData.away_team.last_name}</h3>
-                                        </th>
-                                        <th className="mlbboxscore__tablebody__teams__table--gstatus">
-                                            {mlbData.event_information.status == "completed" ? "Final" : mlbData.event_information.status}
-                                        </th>
-                                        <th className="mlbboxscore__tablebody__teams__table--home">
-                                            <h3>{mlbData.home_team.last_name}</h3>
-                                        </th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div >
+                <table className="mlbboxscore">
+                    <thead className="mlbboxscore__tablehead">
+                        <tr className="mlbboxscore__tablehead_columnheaders">
+                            <td className="mlbboxscore__tablehead--teamabrv">Team</td>
+                            {/* Inning number mapping */}
+                            {awayPeriodScores.map((inning, i) => {
+                                return (
+                                    <td className="mlbboxscore__tablehead--inning" key={i}>
+                                        {i + 1}
+                                    </td>
+                                )
+                            })
+                            }
+                            <td className="mlbboxscore__tablehead__totals">Runs</td>
+                            <td className="mlbboxscore__tablehead__totals">Hits</td>
+                            <td className="mlbboxscore__tablehead__totals">Errors</td>
+                        </tr>
+                    </thead>
+                    <tbody className="mlbboxscore__tablebody">
+                        <tr>
+                            <td className="mlbboxscore__tablebody__teamabrv--away">{awayAbbreviation}</td>
+                            {awayPeriodScores.map((away_score, inning) => {
+                                return (
+                                    <td className="mlbboxscore__tablebody__inningscore--away" key={inning + 1}>{away_score}</td>
+                                )
+                            })}
+                            <td className="mlbboxscore__tablebody__totals--away">{awayBatterTotals.hits}</td>
+                            <td className="mlbboxscore__tablebody__totals--away">{awayBatterTotals.runs}</td>
+                            <td className="mlbboxscore__tablebody__totals--away">{mlbData.away_errors}</td>
+                        </tr>
+                        <tr>
+                            <td className="mlbboxscore__tablebody__teamabrv--home">{homeAbbreviation}</td>
+                            {homePeriodScores.map((away_score, inning) => {
+                                return (
+                                    <td className="mlbboxscore__tablebody__inningscore--home" key={inning + 1}>{away_score}</td>
+                                )
+                            })}
+                            <td className="mlbboxscore__tablebody__totals--home">{homeBatterTotals.hits}</td>
+                            <td className="mlbboxscore__tablebody__totals--home">{homeBatterTotals.runs}</td>
+                            <td className="mlbboxscore__tablebody__totals--home">{mlbData.home_errors}</td>
+                        </tr>
+                        <tr>
+                            <td className="mlbboxscore__tablebody__teams" colSpan={lengthOfTable}>
+                                <table className="mlbboxscore__tablebody__teams__table" >
+                                    <thead>
+                                        <tr>
+                                            <th className="mlbboxscore__tablebody__teams__table--away">
+                                                <h3>{mlbData.away_team.last_name}</h3>
+                                            </th>
+                                            <th className="mlbboxscore__tablebody__teams__table--gstatus">
+                                                {mlbData.event_information.status == "completed" ? "Final" : mlbData.event_information.status}
+                                            </th>
+                                            <th className="mlbboxscore__tablebody__teams__table--home">
+                                                <h3>{mlbData.home_team.last_name}</h3>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
         </div>
     );
 };
