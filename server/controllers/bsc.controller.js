@@ -1,6 +1,5 @@
 // Controller requires with the model to perform "business" logic
-const NBABoxScore = require("../models/bsc.model")
-const MLBBoxScore = require("../models/bsc.model")
+const {NBABoxScore, MLBBoxScore} = require("../models/bsc.model")
 
 // ========================= CREATE ========================= //
 // Create/write box score to DB
@@ -50,10 +49,27 @@ module.exports.getNewestMLBBS = (req, res) => {
     .catch((err) => res.json({ message: "something went wrong getting the newest MLB BS", error: err}))
 }
 
-
-// ========================= UPDATE ALL ========================= //
-module.exports.updateMLBBS = (req, res) => {
-    // use id from first get request to find in db for update? 
+module.exports.getNewestNBABS = (req, res) => {
+    NBABoxScore.findOne().sort({updatedAt:-1})
+    .then((newestNBABS) => { 
+        res.json({newestNBABS})
+    })
+    .catch((err) => res.json({ message: "something went wrong getting the newest MLB BS", error: err}))
 }
 
-// Update box scores
+
+// ========================= UPDATE BY ID ========================= //
+module.exports.updateMLBBS = (req, res) => {
+    // use id from first get request to find in db for update?
+    const filter = req.body._id
+    const update = req.body.data
+    MLBBoxScore.findByIdAndUpdate(filter, update)
+    .then(res => console.log(res.updatedAt))
+}
+module.exports.updateNBABS = (req, res) => {
+    // use id from first get request to find in db for update?
+    const filter = req.body._id
+    const update = req.body.data
+    NBABoxScore.findByIdAndUpdate(filter, update)
+    .then(res => console.log(res.updatedAt))
+}

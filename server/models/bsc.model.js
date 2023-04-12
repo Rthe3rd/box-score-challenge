@@ -11,26 +11,21 @@ const NBASchema = new mongoose.Schema( {
         default: []
     },
     away_stats: {
-        // need to reference playerStats from data.objects.js
-        // type: [dataObjects.individualStats],
         type: [Object],
         default: [{}]
     },
     away_team: {
-        // need to reference teamInfo from data.objects.js
-        // type: [dataObjects.teamInfo],
+
         type: Object,
         default: {}
     }, 
     away_totals: {
-        // need to reference teamTotals from data.objects.js
-        // type: [dataObjects.teamTotals],
+
         type: Object,
         default: {}
     },
     event_information: {
-        // need to reference eventInformation from data.objects.js
-        // type: [dataObjects.eventInfo],
+
         type: Object,
         default: {}
     },
@@ -39,20 +34,16 @@ const NBASchema = new mongoose.Schema( {
         default: []
     },
     home_stats: {
-        // need to reference playerStats from data.objects.js
-        // type: [dataObjects.individualStats],
+
         type: [Object],
         default: [{}]
     },
     home_team: {
-        // need to reference teamInfo from data.objects.js
-        // type: [dataObjects.teamInfo],
         type: Object,
         default: {}
     }, 
     home_totals: {
-        // need to reference teamTotals from data.objects.js
-        // type: [dataObjects.teamTotals],
+
         type: Object,
         default: {}
     },
@@ -61,8 +52,7 @@ const NBASchema = new mongoose.Schema( {
         deault: ''
     },
     officials:{
-        // need to reference officialsInfo from data.objects.js
-        // type: [dataObjects.officialsInfo],
+
         type: [Object],
         default: [{}]
     }
@@ -135,7 +125,6 @@ const MLBSchema = new mongoose.Schema({
         deault: ''
     },
     officials:{
-        // need to reference officialsInfo from data.objects.js
         type: [Object],
         default: [{}]
     }
@@ -144,5 +133,5 @@ const MLBSchema = new mongoose.Schema({
 
 const NBABoxScore = mongoose.model("NBABoxScore", NBASchema)
 const MLBBoxScore = mongoose.model("MLBBoxScore", MLBSchema)
-module.exports = NBABoxScore;
-module.exports = MLBBoxScore;
+
+module.exports  = {NBABoxScore, MLBBoxScore};

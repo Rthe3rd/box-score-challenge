@@ -11,6 +11,7 @@ import Grid from './components/Grid'
 import Test from './views/Test'
 import TestOnload from './views/TestOnload'
 import Boxscore from './views/Boxscore'
+import NBAGamePage from './views/NBAGamePage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +23,7 @@ function App() {
         <Route path = "/TestOnload" element = { <TestOnload/> } />
         <Route path = "/Grid" element = { <Grid/> } />
         <Route path = "/Boxscore" element = { <Boxscore/> } />
+        <Route path = "/NBAGamePage" element = { <NBAGamePage/> } />
       </Routes>
     </div>
   )
