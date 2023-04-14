@@ -18,6 +18,9 @@ const NBABoxScore = () => {
 
 
     useEffect(() => {
+
+
+
         const nbaURI = "https://chumley.barstoolsports.com/dev/data/games/6c974274-4bfc-4af8-a9c4-8b926637ba74.json"
         const date = new Date();
         const currentTime = Math.floor(date.getTime() / 1000);
@@ -83,57 +86,70 @@ const NBABoxScore = () => {
 
 
     return (
-        <div>
-            <table className = "nbaboxscore">
-                <thead className = "nbaboxscore__tablehead">
-                    <tr className = "nbaboxscore__tablehead__columnheaders">
-                        <td className="nbaboxscore__tablehead__columnheaders--team">Team</td>
-                        {awayPeriodScores.map((period, key) => {
-                            return(
-                                <td className = "nbaboxscore__tablehead__columnheaders--period" key = {key}>
-                                    {key + 1}
-                                </td>
-                            )
-                        })
-                        }
-                        <td className="nbaboxscore__tablehead__columnheaders--total">T</td>
-                    </tr>
-                </thead>
-                <tbody className="nbaboxscore__tablebody">
-                    <tr className="nbaboxscore__tablebody__scorerow">
-                        <td className="nbaboxscore__tablebody__scorerow--abbrv">
-                            {awayAbbreviation}
-                        </td>
-                        {awayPeriodScores.map((score, key) => {
-                            return(
-                                <td className="nbaboxscore__tablebody__scorerow--awayscore" key = {key}>
-                                    {score}
-                                </td>
-                                )}
-                            )
-                        }
-                        <td className="nbaboxscore__tablebody__scorerow--awaytotal">
-                            {awayTotals.points}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            {homeAbbreviation}
-                        </td>
-                        {awayPeriodScores.map((score, key) => {
-                            return(
-                                <td className="nbaboxscore__tablebody__scorerow--homescore" key = {key}>
-                                    {score}
-                                </td>
-                            )
-                        })
-                        }
-                        <td className="nbaboxscore__tablebody__scorerow--awaytotal">
-                            {homeTotals.points}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div className="nbaboxscore__container">
+            <div className="nbaboxscore__main">
+                <div className ="sidegraphic sidegraphic--away">
+                    <h3 className="sidegraphic__abrv">{awayAbbreviation} </h3>
+                    <img alt ="logo" src =  "./OKC.png" className="sidegraphic__logo" />
+                    <h3 className="sidegraphic__total">{awayTotals.points}</h3>
+                </div>
+                <table className = "nbaboxscore">
+                    <thead className = "nbaboxscore__tablehead">
+                        <tr className = "nbaboxscore__tablehead__columnheaders">
+                            <td className="nbaboxscore__tablehead__columnheaders--team"></td>
+                            {awayPeriodScores.map((period, key) => {
+                                return(
+                                    <td className = "nbaboxscore__tablehead__columnheaders--period" key = {key}>
+                                        {key + 1}
+                                    </td>
+                                )
+                            })
+                            }
+                            <td className="nbaboxscore__tablehead__columnheaders--total">T</td>
+                        </tr>
+                    </thead>
+                    <tbody className="nbaboxscore__tablebody">
+                        <tr className="nbaboxscore__tablebody__scorerow">
+                            <td className="nbaboxscore__tablebody__scorerow--abbrv">
+                                {awayAbbreviation}
+                            </td>
+                            {awayPeriodScores.map((score, key) => {
+                                return(
+                                    <td className="nbaboxscore__tablebody__scorerow--awayscore" key = {key}>
+                                        {score}
+                                    </td>
+                                    )}
+                                )
+                            }
+                            <td className="nbaboxscore__tablebody__scorerow--awaytotal">
+                                {awayTotals.points}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {homeAbbreviation}
+                            </td>
+                            {awayPeriodScores.map((score, key) => {
+                                return(
+                                    <td className="nbaboxscore__tablebody__scorerow--homescore" key = {key}>
+                                        {score}
+                                    </td>
+                                )
+                            })
+                            }
+                            <td className="nbaboxscore__tablebody__scorerow--hometotal">
+                                {homeTotals.points}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div className ="sidegraphic sidegraphic--home">
+                    <h3 className="sidegraphic__abrv">{homeAbbreviation} </h3>
+                    <img alt ="logo" src =  "./MIA.png" className="sidegraphic__logo" />
+                    <h3 className="sidegraphic__total">{homeTotals.points}</h3>
+                </div>
+            </div>
+
         </div>
 
     )

@@ -7,7 +7,7 @@
 
 #root {
   font-size: 62.5%;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: sans-serif;
   padding: 1.5rem; }
   @media only screen and (max-width: 75em) {
     #root {
@@ -52,39 +52,6 @@
 .u-margin-top-big {
   margin-top: 8rem !important; }
 
-.grid__container {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  font-family: sans-serif;
-  font-size: 2rem; }
-
-.container {
-  --numberOfInnings: 9;
-  display: grid;
-  grid-template-columns: 20rem repeat(13, 10rem);
-  grid-template-rows: repeat(3, 5rem) 10rem;
-  height: 100vh;
-  padding: 2rem;
-  background-color: brown; }
-  .container--pitcher {
-    grid-column: span 14;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; }
-    .container--pitcher > * {
-      border: 2px solid black;
-      color: black;
-      background-color: green;
-      display: grid;
-      place-items: center;
-      place-self: stretch; }
-  .container > * {
-    border: 2px solid black;
-    color: black;
-    background-color: skyblue;
-    display: grid;
-    place-items: center; }
-
 table td:not(.mlbboxscore__tablebody__teams),
 table th:not(.mlbboxscore__tablebody__teams__table--away),
 table th:not(.mlbboxscore__tablebody__teams__table--gstatus),
@@ -96,9 +63,9 @@ table th:not(.mlbboxscore__tablebody__teams__table--home) {
   border-radius: .5rem;
   border-spacing: 0;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #151515;
-  background-color: #eeeeee;
+  background-color: rgba(238, 238, 238, 0.8);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -122,7 +89,7 @@ table th:not(.mlbboxscore__tablebody__teams__table--home) {
     .mlbboxscore__tablebody__teams__table--away, .mlbboxscore__tablebody__teams__table--home {
       width: 45%; }
     .mlbboxscore__tablebody__teams__table--gstatus {
-      background-color: #eeeeee;
+      background-color: rgba(238, 238, 238, 0.8);
       color: #151515; }
     .mlbboxscore__tablebody__teams__table--away {
       color: #fdffff;
@@ -133,42 +100,57 @@ table th:not(.mlbboxscore__tablebody__teams__table--home) {
   .mlbboxscore__tablebody__teams {
     border-top: 2.5px solid #3f3f3f; }
 
-table.nbaboxscore {
-  border: 2.5px solid #3f3f3f;
+.nbaboxscore {
+  transform: skewX(12deg);
   border-radius: .5rem;
   border-spacing: 0;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #151515;
-  background-color: #eeeeee;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); }
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.1); }
+  .nbaboxscore__main {
+    display: flex;
+    background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.7) 100%, transparent 50%);
+    background-size: 100%;
+    border-radius: 3px;
+    transform: skewX(-12deg);
+    border: 1.5px solid #3f3f3f;
+    padding: .5rem; }
+  .nbaboxscore td,
+  .nbaboxscore th {
+    padding: 1rem; }
+  .nbaboxscore__tablehead__columnheaders--team, .nbaboxscore__tablehead__columnheaders--period, .nbaboxscore__tablehead__columnheaders--total {
+    border-bottom: 1.5px solid #3f3f3f;
+    font-weight: 600; }
+  .nbaboxscore__tablebody__scorerow--awaytotal {
+    font-weight: 400; }
+  .nbaboxscore__tablebody__scorerow--hometotal {
+    font-weight: 800; }
 
-table.nbaboxscore td,
-table.nbaboxscore th {
-  padding: 1.75rem; }
+.sidegraphic {
+  padding: .5rem;
+  transform: skewX(12deg);
+  display: flex;
+  align-items: center; }
+  .sidegraphic__abrv {
+    font-size: 2.5rem; }
+  .sidegraphic__logo {
+    width: 7.5rem;
+    height: 7.5rem;
+    clip-path: circle(50% at 50% 50%); }
+  .sidegraphic__total {
+    font-size: 2.5rem; }
 
-.nbaboxscore__tablehead__columnheaders--team, .nbaboxscore__tablehead__columnheaders--period, .nbaboxscore__tablehead__columnheaders--total {
-  border-bottom: 2.5px solid #3f3f3f; }
-
-.boxscore__team--header, .boxscore__team--away {
-  display: grid;
-  grid-template-columns: 10rem 20rem 10rem; }
-
-.boxscore__team__units {
-  display: grid;
-  grid-template-columns: repeat(9, 2rem); }
-
-.boxscore__team__results {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; }
-
-.boxscore__team__results > span {
-  border: 1px solid red; }
+.section-MLBBoxScore {
+  background-image: linear-gradient(to right bottom, rgba(63, 63, 63, 0.6), rgba(238, 238, 238, 0.6)), url("../img/mlbgamepage.jpg");
+  height: 100vh;
+  background-size: cover;
+  font-size: 2rem; }
 
 .section-NBABoxScore {
   background-image: linear-gradient(to right bottom, rgba(63, 63, 63, 0.6), rgba(238, 238, 238, 0.6)), url("../img/nbagamepage.jpg");
-  height: 100vh;
-  background-size: cover; }
+  background-size: cover;
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }

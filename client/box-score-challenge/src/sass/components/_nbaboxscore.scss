@@ -1,22 +1,72 @@
-table.nbaboxscore {
-    border: 2.5px solid $color-gray-dark;
+.nbaboxscore {
+
+    &__main{
+        display: flex;
+        background-image: linear-gradient(
+            105deg, 
+            rgba($color-white, .6) 0%, 
+            rgba($color-white, .7) 100%, 
+            transparent 50%); 
+        background-size: 100%;
+        border-radius: 3px;
+        transform: skewX(-12deg);
+        border: 1.5px solid $color-gray-dark;
+        padding: .5rem;
+    }
+
+    transform: skewX(12deg);
     border-radius: .5rem;
     border-spacing: 0;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: $color-gray-darker;
-    background-color: $color-gray-medium;
-    @include centerElement;
+    box-shadow: 0 2rem 6rem rgba($color-black, .1);
+
+    & td,
+    & th {
+        padding: 1rem;
+    }
+    
+    &__tablehead__columnheaders{
+    
+        &--team, &--period, &--total{
+            border-bottom: 1.5px solid $color-gray-dark;
+            font-weight: 600;
+        }
+    }
+
+    &__tablebody{
+        &__scorerow{
+
+            &--awaytotal{
+                font-weight: 400;
+            }
+            &--hometotal{
+                font-weight: 800;
+            }
+        }
+    }
+
+
 }
 
-table.nbaboxscore td,
-table.nbaboxscore th {
-    padding: 1.75rem;
-}
+.sidegraphic{
+    padding: .5rem;
+    transform: skewX(12deg);
 
-
-.nbaboxscore__tablehead__columnheaders{
-    &--team, &--period, &--total{
-        border-bottom: 2.5px solid $color-gray-dark;
+    display: flex;
+    align-items: center;
+    
+    &__abrv{
+        font-size: 2.5rem;
+    }
+    &__logo{
+        width:7.5rem;
+        height:7.5rem;
+        clip-path: circle(50% at 50% 50% );
+        
+    }
+    &__total{
+        font-size: 2.5rem;
     }
 }

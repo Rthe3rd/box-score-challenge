@@ -107,7 +107,6 @@ const MLBBoxscore = () => {
                     <thead className="mlbboxscore__tablehead">
                         <tr className="mlbboxscore__tablehead__columnheaders">
                             <td className="mlbboxscore__tablehead--teamabrv">Team</td>
-                            {/* Inning number mapping */}
                             {awayPeriodScores.map((inning, i) => {
                                 return (
                                     <td className="mlbboxscore__tablehead--inning" key={i}>
@@ -165,7 +164,6 @@ const MLBBoxscore = () => {
                         </tr>
                     </tbody>
                 </table>
-
             </div>
         </div>
     );

@@ -93,7 +93,7 @@ const TestOnload = () => {
                         </div>
                     </div>
 
-                    {/* <div className="boxscore__team boxscore__team--home">
+                    <div className="boxscore__team boxscore__team--home">
                         <label>STL</label>
                         <div className="boxscore__team__units">
                             <span>0</span>
@@ -129,7 +129,7 @@ const TestOnload = () => {
                             </p>
                             <span>56-38</span>
                         </div>
-                    </div> */}
+                    </div>
                 </div>
             </div>
     )

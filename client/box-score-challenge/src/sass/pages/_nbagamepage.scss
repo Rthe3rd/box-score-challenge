@@ -6,6 +6,10 @@
         rgba($color-gray-medium, .6)
     ),
     url("../img/nbagamepage.jpg");
-    height: 100vh;
+    // height: 100vh;
     background-size: cover;
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
