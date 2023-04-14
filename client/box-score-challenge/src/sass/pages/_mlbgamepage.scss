@@ -1,0 +1,11 @@
+.section-MLBBoxScore{
+    background-image: 
+    linear-gradient(
+        to right bottom,
+        rgba($color-gray-dark, .6),
+        rgba($color-gray-medium, .6)
+    ),
+    url("../img/mlbgamepage.jpg");
+    height: 100vh;
+    background-size: cover;
+}

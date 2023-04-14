@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
-const Boxscore = () => {
+const MLBBoxscore = () => {
 
     const [mlbData, setMLBData] = useState('')
     // Length of table
@@ -40,7 +40,7 @@ const Boxscore = () => {
                                 .then(() => {
                                     axios.get("http://localhost:8000/api/getMLBBS")
                                         .then((res) => {
-                                            console.log(res.data.MLBBS[0])
+                                            console.log(res.data)
                                             setMLBData(res.data.MLBBS[0])
                                             setEventInformation(res.data.MLBBS[0].event_information)
                                             setLengthOfTable(res.data.MLBBS[0].away_period_scores.length + 4)
@@ -105,7 +105,7 @@ const Boxscore = () => {
             <div>
                 <table className="mlbboxscore">
                     <thead className="mlbboxscore__tablehead">
-                        <tr className="mlbboxscore__tablehead_columnheaders">
+                        <tr className="mlbboxscore__tablehead__columnheaders">
                             <td className="mlbboxscore__tablehead--teamabrv">Team</td>
                             {/* Inning number mapping */}
                             {awayPeriodScores.map((inning, i) => {
@@ -116,9 +116,9 @@ const Boxscore = () => {
                                 )
                             })
                             }
-                            <td className="mlbboxscore__tablehead__totals">Runs</td>
-                            <td className="mlbboxscore__tablehead__totals">Hits</td>
-                            <td className="mlbboxscore__tablehead__totals">Errors</td>
+                            <td className="mlbboxscore__tablehead__totals mlbboxscore__tablehead__totals--runs">R</td>
+                            <td className="mlbboxscore__tablehead__totals mlbboxscore__tablehead__totals--hits">H</td>
+                            <td className="mlbboxscore__tablehead__totals mlbboxscore__tablehead__totals--errors">E</td>
                         </tr>
                     </thead>
                     <tbody className="mlbboxscore__tablebody">
@@ -129,9 +129,9 @@ const Boxscore = () => {
                                     <td className="mlbboxscore__tablebody__inningscore--away" key={inning + 1}>{away_score}</td>
                                 )
                             })}
-                            <td className="mlbboxscore__tablebody__totals--away">{awayBatterTotals.hits}</td>
-                            <td className="mlbboxscore__tablebody__totals--away">{awayBatterTotals.runs}</td>
-                            <td className="mlbboxscore__tablebody__totals--away">{mlbData.away_errors}</td>
+                            <td className="mlbboxscore__tablebody__totals__runs--away">{awayBatterTotals.runs}</td>
+                            <td className="mlbboxscore__tablebody__totals__hits--away">{awayBatterTotals.hits}</td>
+                            <td className="mlbboxscore__tablebody__totals__errors--away">{mlbData.away_errors}</td>
                         </tr>
                         <tr>
                             <td className="mlbboxscore__tablebody__teamabrv--home">{homeAbbreviation}</td>
@@ -140,9 +140,9 @@ const Boxscore = () => {
                                     <td className="mlbboxscore__tablebody__inningscore--home" key={inning + 1}>{away_score}</td>
                                 )
                             })}
-                            <td className="mlbboxscore__tablebody__totals--home">{homeBatterTotals.hits}</td>
-                            <td className="mlbboxscore__tablebody__totals--home">{homeBatterTotals.runs}</td>
-                            <td className="mlbboxscore__tablebody__totals--home">{mlbData.home_errors}</td>
+                            <td className="mlbboxscore__tablebody__totals__runs--home">{homeBatterTotals.runs}</td>
+                            <td className="mlbboxscore__tablebody__totals__hits--home">{homeBatterTotals.hits}</td>
+                            <td className="mlbboxscore__tablebody__totals__errors--home">{mlbData.home_errors}</td>
                         </tr>
                         <tr>
                             <td className="mlbboxscore__tablebody__teams" colSpan={lengthOfTable}>
@@ -159,9 +159,6 @@ const Boxscore = () => {
                                                 <h3>{homeTeamName}</h3>
                                             </th>
                                         </tr>
-                                        <tr>
-                                            <th>{mlbData.updatedAt}</th>
-                                        </tr>
                                     </thead>
                                 </table>
                             </td>
@@ -174,4 +171,4 @@ const Boxscore = () => {
     );
 };
 
-export default Boxscore;
+export default MLBBoxscore;

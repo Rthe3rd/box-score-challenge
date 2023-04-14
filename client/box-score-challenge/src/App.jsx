@@ -10,8 +10,8 @@ import Grid from './components/Grid'
 // Views
 import Test from './views/Test'
 import TestOnload from './views/TestOnload'
-import Boxscore from './views/Boxscore'
 import NBAGamePage from './views/NBAGamePage'
+import MLBGamePage from './views/MLBGamePage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,7 +22,7 @@ function App() {
         <Route path = "/" element = { <Test/> } />
         <Route path = "/TestOnload" element = { <TestOnload/> } />
         <Route path = "/Grid" element = { <Grid/> } />
-        <Route path = "/Boxscore" element = { <Boxscore/> } />
+        <Route path = "/MLBGamePage" element = { <MLBGamePage/> } />
         <Route path = "/NBAGamePage" element = { <NBAGamePage/> } />
       </Routes>
     </div>

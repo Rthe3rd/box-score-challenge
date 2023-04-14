@@ -5,9 +5,8 @@
 @import "base/utilities";
 @import "base/typography";
 
-@import "components/grid";
 @import "components/mlbboxscore";
+@import "components/nbaboxscore";
 
-@import "layouts/grid";
-
-@import "pages/mlbhome";
+@import "pages/mlbgamepage";
+@import "pages/nbagamepage";

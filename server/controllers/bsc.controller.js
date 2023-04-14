@@ -6,7 +6,7 @@ const {NBABoxScore, MLBBoxScore} = require("../models/bsc.model")
 module.exports.createNBABS = (req, res) => {
     NBABoxScore.create(req.body)
     .then(console.log(req.body))
-    .then(newNBABoxScore => {res.json(newNBABoxScore)})
+    .then(newNBABoxScore => res.json(newNBABoxScore))
     .catch((err) => {
         res.json({ message: 'Something went wrong create NBA document', error: err })
     })
@@ -37,7 +37,6 @@ module.exports.getMLBBS = (req, res) => {
         res.json({MLBBS})
     })
     .catch((err) => res.json({ message: "something went wrong getting MLB BS", error: err}))
-
 }
 
 // ========================= GET MOST UP TO DATE DATA ========================= //

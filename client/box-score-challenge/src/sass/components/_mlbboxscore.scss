@@ -1,37 +1,62 @@
-.mlbboxscore{
 
+table td:not(.mlbboxscore__tablebody__teams), 
+table th:not(.mlbboxscore__tablebody__teams__table--away), 
+table th:not(.mlbboxscore__tablebody__teams__table--gstatus), 
+table th:not(.mlbboxscore__tablebody__teams__table--home)
+{
+    padding: 1rem;
+}
+
+.mlbboxscore{
+    border: 2.5px solid $color-gray-dark;
+    border-radius: .5rem;
+    border-spacing: 0;
+    text-align: center;
+    font-size: 2rem;
+    color: $color-gray-darker;
+    background-color: $color-gray-medium;
     @include centerElement;
 
-    border-collapse: collapse;
+    &__tablehead{
+        &--teamabrv, &--inning, &__totals{
+            border-bottom: 2.5px solid $color-gray-dark;
+            font-weight:600;
 
-    &__tablebody, &__tablehead{
+            &--runs{
+                border-left: 2.5px solid $color-gray-dark;
+            }
 
-        td:not(.mlbboxscore__tablebody__teams) {
-            padding: .5rem;
-            background-color: $color-gray-light;
-            color: $color-gray-dark;
-            font-weight: 500;
         }
-
-        td{
-            border: .1rem solid $color-gray-dark;
-            text-align: center;
+        &--teamabrv{
+            border-right: 2.5px solid $color-gray-dark;
         }
-
+    }
+    
+    &__tablebody{
+        &__teamabrv{
+            &--away, &--home{
+                border-right: 2.5px solid $color-gray-dark;
+                font-weight:600;
+            }
+        }
         &__totals{
-            background-color: #ededed;
+            &__runs{
+                &--away, &--home{
+                    border-left: 2.5px solid $color-gray-dark;
+                    
+                }
+            }
+            &__runs, &__hits, &__errors{
+                &--home, &--away{
+                    font-weight:600;
+                }
+            }
         }
-
         &__teams{
-            padding:0;
-
             &__table{
                 border-collapse: collapse;
-                width:100%;
                 &--away, &--home{
-                    width: 40%;
-                    font-size: 1.5rem;  
-                    font-weight: 600;
+                    width:45%;
                 }
                 &--gstatus{
                     background-color: $color-gray-medium;
@@ -46,6 +71,9 @@
                     background-color: #cd1241;
                 }
             }
+        }
+        &__teams{
+            border-top: 2.5px solid $color-gray-dark;;
         }
     }
 }

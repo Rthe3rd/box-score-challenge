@@ -4,9 +4,10 @@ import NBABoxScore from '../components/NBABoxScore'
 
 const NBAGamePage = () => {
   return (
-    <div>
-        NBAGamePage
-        <NBABoxScore/>
+    <div className="">
+        <section className="section-NBABoxScore">
+          <NBABoxScore/>
+        </section>
     </div>
   )
 }
